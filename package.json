@@ -1,0 +1,23 @@
+{
+  "name": "prompt-benchmark",
+  "private": true,
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev": "bash ./scripts/dev.sh",
+    "dev:api": "bash ./scripts/dev-api.sh",
+    "dev:web": "bash ./scripts/dev-web.sh",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test:smoke": "npm run lint && npm run build",
+    "clean": "bash ./scripts/clean.sh"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.15"
+    }
+  }
+}

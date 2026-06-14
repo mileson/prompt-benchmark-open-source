@@ -1,0 +1,55 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="57" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102341"/>
+      <stop offset="1" stop-color="#08111F"/>
+    </linearGradient>
+
+    <linearGradient id="outerStroke" x1="10" y1="10" x2="50" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9BE7FF"/>
+      <stop offset="0.42" stop-color="#5B88FF"/>
+      <stop offset="1" stop-color="#93F2FF"/>
+    </linearGradient>
+
+    <linearGradient id="innerFill" x1="23" y1="18" x2="48" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7FD4FF"/>
+      <stop offset="0.38" stop-color="#3E6CFF"/>
+      <stop offset="1" stop-color="#6FDFFF"/>
+    </linearGradient>
+
+    <radialGradient id="innerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(34 31) rotate(90) scale(27 22)">
+      <stop stop-color="#9EDCFF" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#5476FF" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#2444C9" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2.6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0.12  0 0 1 0 0.42  0 0 0 0.95 0" result="glow"/>
+      <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+    </filter>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#bg)"/>
+
+  <g filter="url(#softGlow)">
+    <path
+      d="M18.4 12.8C20.8 10.4 24.4 9.2 28 9.2H43.2C47.1 9.2 50.3 12.4 50.3 16.3V20.4C50.3 22.2 49.6 24 48.4 25.3L36.4 38.3C34.7 40.2 31.7 40.2 30 38.3L14.7 21.8C11.9 18.8 12.1 14.9 15.1 12.1L18.4 12.8Z"
+      stroke="url(#outerStroke)"
+      stroke-width="4.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <path
+      d="M31.7 22.4C34.5 19.4 39.3 19.6 41.8 22.8L51 34.4C53.2 37.1 52.9 40.9 50.4 43.4L39.8 54C36.9 56.9 32.1 56.7 29.4 53.5L20.2 42.3C17.8 39.5 17.9 35.4 20.5 32.8L31.7 22.4Z"
+      fill="url(#innerFill)"
+    />
+
+    <path
+      d="M31.7 22.4C34.5 19.4 39.3 19.6 41.8 22.8L51 34.4C53.2 37.1 52.9 40.9 50.4 43.4L39.8 54C36.9 56.9 32.1 56.7 29.4 53.5L20.2 42.3C17.8 39.5 17.9 35.4 20.5 32.8L31.7 22.4Z"
+      fill="url(#innerGlow)"
+      opacity="0.95"
+    />
+  </g>
+</svg>

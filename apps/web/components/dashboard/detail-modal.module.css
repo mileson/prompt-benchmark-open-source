@@ -1,0 +1,303 @@
+/*
+## 核心功能
+维护 detail-modal.module.css 在 Prompt Benchmark 中的实现职责，支撑 组件化界面或服务。
+
+## 输入
+来自上游页面、服务、配置、用户动作、测试或构建流程的数据。
+
+## 输出
+向调用方提供函数、类型、视图、状态、配置或处理结果。
+
+## 定位
+位于 apps/web/components/dashboard，只承担该目录约定的局部职责。
+
+## 依赖
+依赖同目录或相邻模块、项目配置以及运行时框架提供的能力。
+
+## 维护规则
+修改逻辑、输入输出、外部依赖或职责边界后，同步更新本文件说明书和所在文件夹 README。
+*/
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgb(4, 9, 16);
+  overflow: auto;
+}
+
+.modal {
+  width: min(1360px, 100%);
+  max-height: calc(100vh - 56px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: 34px;
+  overflow: hidden;
+  background: rgb(11, 18, 30);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.42);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 28px 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+}
+
+.titleWrap {
+  display: grid;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(231, 241, 255, 0.84);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.closeButton {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 16px;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.9fr);
+  gap: 0;
+  min-height: 0;
+}
+
+.bodySingleColumn {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.column {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 28px 28px;
+}
+
+.promptPanel,
+.analysisPanel {
+  display: grid;
+  gap: 18px;
+}
+
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.listTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.titleIconGood {
+  color: #84f3d8;
+  background: rgba(132,243,216,0.14);
+  border: 1px solid rgba(132,243,216,0.18);
+}
+
+.titleIconWarn {
+  color: #ffb56b;
+  background: rgba(255,181,107,0.12);
+  border: 1px solid rgba(255,181,107,0.18);
+}
+
+.titleIconNext {
+  color: #80d6ff;
+  background: rgba(128,214,255,0.12);
+  border: 1px solid rgba(128,214,255,0.18);
+}
+
+.promptBox,
+.analysisBox,
+.listBox {
+  border-radius: 26px;
+  padding: 20px;
+  background: rgb(18, 27, 40);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.promptMarkdown {
+  color: rgba(236, 244, 255, 0.92);
+  line-height: 1.9;
+}
+
+.promptMarkdown > :first-child {
+  margin-top: 0;
+}
+
+.promptMarkdown > :last-child {
+  margin-bottom: 0;
+}
+
+.promptMarkdown p,
+.promptMarkdown ul,
+.promptMarkdown ol,
+.promptMarkdown blockquote,
+.promptMarkdown pre {
+  margin: 0 0 16px;
+}
+
+.promptMarkdown strong {
+  color: #ffffff;
+}
+
+.promptMarkdown code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  font-size: 0.92em;
+}
+
+.promptMarkdown pre {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgb(14, 24, 38);
+  overflow: auto;
+}
+
+.promptHighlight {
+  border-radius: 8px;
+  padding: 2px 6px;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  background: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.promptHighlightStrength {
+  background: #2f9d68;
+  box-shadow: none;
+}
+
+.promptHighlightWeakness {
+  background: #d95b66;
+  box-shadow: none;
+}
+
+.scoreRows {
+  display: grid;
+  gap: 12px;
+}
+
+.scoreRow {
+  display: grid;
+  gap: 8px;
+}
+
+.scoreLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(223, 235, 255, 0.84);
+  font-size: 14px;
+}
+
+.track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255,215,120,0.92), rgba(113,255,208,0.92));
+  box-shadow: 0 0 24px rgba(113,255,208,0.24);
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: rgba(226, 238, 255, 0.86);
+  line-height: 1.65;
+}
+
+.analysisDividerWrap {
+  display: grid;
+  gap: 10px;
+}
+
+.analysisDivider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+}
+
+.analysisDividerTitle {
+  color: rgba(201, 218, 241, 0.64);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.empty {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+@media (max-width: 1120px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .insightGrid {
+    grid-template-columns: 1fr;
+  }
+}

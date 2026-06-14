@@ -1,0 +1,289 @@
+/*
+## 核心功能
+维护 ai-config-screen.module.css 在 Prompt Benchmark 中的实现职责，支撑 组件化界面或服务。
+
+## 输入
+来自上游页面、服务、配置、用户动作、测试或构建流程的数据。
+
+## 输出
+向调用方提供函数、类型、视图、状态、配置或处理结果。
+
+## 定位
+位于 apps/web/components/dashboard，只承担该目录约定的局部职责。
+
+## 依赖
+依赖同目录或相邻模块、项目配置以及运行时框架提供的能力。
+
+## 维护规则
+修改逻辑、输入输出、外部依赖或职责边界后，同步更新本文件说明书和所在文件夹 README。
+*/
+.shell {
+  min-height: calc(100vh - 56px);
+  width: min(880px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.headerRow {
+  padding-top: 6px;
+}
+
+.headerMain {
+  display: grid;
+  gap: 16px;
+}
+
+.backButton {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.backButton:hover {
+  transform: translateY(-1px);
+  background: rgba(136, 240, 255, 0.14);
+  box-shadow: 0 12px 28px rgba(136, 240, 255, 0.12);
+}
+
+.headerCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 0.96;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.panel,
+.notice {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background: rgba(11, 18, 30, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.panel {
+  padding: 24px;
+}
+
+.notice {
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.noticeError {
+  border-color: rgba(255, 123, 139, 0.4);
+  color: #ffdce2;
+}
+
+.noticeSuccess {
+  border-color: rgba(114, 255, 207, 0.38);
+  color: #d7fff2;
+}
+
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.fieldBlock {
+  display: grid;
+  gap: 12px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label,
+.statusLabel {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modeValue,
+.statusValue {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-size: 16px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(136, 240, 255, 0.46);
+  box-shadow: 0 0 0 4px rgba(136, 240, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.secretRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.iconButton,
+.secondaryButton,
+.primaryButton {
+  border: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.iconButton {
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.iconButton:hover,
+.secondaryButton:hover,
+.primaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.iconButton:disabled,
+.secondaryButton:disabled,
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.statusRow {
+  min-height: 56px;
+  padding: 0 18px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.actions {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.secondaryButton,
+.primaryButton {
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.primaryButton {
+  background: linear-gradient(120deg, rgba(114, 255, 207, 0.96), rgba(136, 240, 255, 0.9));
+  color: #04131b;
+  box-shadow: 0 18px 48px rgba(114, 255, 207, 0.18);
+}
+
+.authCard {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.authTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.loading {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: 100%;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .secretRow {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .secondaryButton,
+  .primaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

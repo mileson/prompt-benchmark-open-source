@@ -1,0 +1,233 @@
+/*
+## 核心功能
+维护 loading.module.css 在 Prompt Benchmark 中的实现职责，支撑 项目核心流程。
+
+## 输入
+来自上游页面、服务、配置、用户动作、测试或构建流程的数据。
+
+## 输出
+向调用方提供函数、类型、视图、状态、配置或处理结果。
+
+## 定位
+位于 apps/web/app，只承担该目录约定的局部职责。
+
+## 依赖
+依赖同目录或相邻模块、项目配置以及运行时框架提供的能力。
+
+## 维护规则
+修改逻辑、输入输出、外部依赖或职责边界后，同步更新本文件说明书和所在文件夹 README。
+*/
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shell {
+  min-height: calc(100vh - 56px);
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  width: min(680px, 100%);
+  border-radius: 32px;
+  padding: 34px 36px 30px;
+  display: grid;
+  gap: 22px;
+  background:
+    linear-gradient(155deg, rgba(10, 18, 30, 0.94), rgba(11, 20, 32, 0.76)),
+    radial-gradient(circle at 100% 0%, rgba(136, 240, 255, 0.08), transparent 26%),
+    radial-gradient(circle at 0% 100%, rgba(255, 177, 100, 0.08), transparent 24%);
+  box-shadow: var(--shadow);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.loadingInline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  color: rgba(224, 237, 255, 0.82);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(136, 240, 255, 0.88);
+  box-shadow: 0 0 18px rgba(136, 240, 255, 0.4);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.loaderStage {
+  display: grid;
+  gap: 14px;
+}
+
+.track {
+  position: relative;
+  overflow: hidden;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(136, 240, 255, 0.2) 16%,
+      rgba(136, 240, 255, 0.82) 42%,
+      rgba(255, 177, 100, 0.74) 64%,
+      transparent 100%
+    );
+  transform: translateX(-100%);
+  animation: scan 1.6s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.step {
+  display: grid;
+  gap: 8px;
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stepLabel {
+  color: rgba(224, 236, 255, 0.88);
+  font-size: 14px;
+}
+
+.stepBar {
+  position: relative;
+  overflow: hidden;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stepBar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 46%;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(114, 255, 207, 0.88), rgba(136, 240, 255, 0.72));
+  animation: breathe 1.3s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+.step:nth-child(2) .stepBar::before {
+  animation-delay: 0.2s;
+}
+
+.step:nth-child(3) .stepBar::before {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.88);
+    opacity: 0.36;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scaleX(0.62);
+    opacity: 0.64;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: 26px 22px 24px;
+    border-radius: 26px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .topRow {
+    justify-content: center;
+  }
+
+  .loadingInline {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
