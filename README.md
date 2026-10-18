@@ -1,4 +1,21 @@
-# Prompt Benchmark
+<a id="prompt-benchmark"></a>
+
+<div align="center">
+
+# Prompt Benchmark · 教学现场提示词评测
+
+**收集学员提示词，触发 AI 评分并展示现场排行。**
+
+提示词提交 · AI 评分 · 现场排行 · 活动管理
+
+[![中文说明](https://img.shields.io/badge/%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-059669)](#readme-detail-12)
+[![项目类型](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE-%E5%BA%94%E7%94%A8-6366f1)](#readme-detail-12)
+
+[✨ 核心特性](#readme-detail-12) · [✅ 适用场景](#readme-detail-audience) · [🚀 快速开始](#readme-detail-14) · [🔒 脱敏说明](#readme-detail-20) · [🏗️ 技术栈](#readme-detail-16) · [🔌 数据源接入](#readme-detail-18)
+
+</div>
+
+---
 
 > 面向教学现场的开源活动工具，用来收集学员提示词、触发 AI 评分，并展示现场排行榜。
 
@@ -6,13 +23,13 @@
 ![Node](https://img.shields.io/badge/node-%3E%3D20-blue)
 ![Data Source](https://img.shields.io/badge/data%20source-Supabase%20or%20custom%20API-purple)
 
-
-
-[功能](#readme-section-1) · [快速开始](#readme-section-2) · [技术栈](#readme-section-3) · [脱敏说明](#readme-section-5) · [目录结构](#readme-section-6) · [安全](#readme-section-7) · [贡献](#readme-section-8)
-
 <a id="readme-section-1"></a>
 
-## 功能
+<a id="功能"></a>
+
+<a id="readme-detail-12"></a>
+
+## ✨ 核心特性
 
 - 创建教学活动，并生成数字编号参与入口。
 - 支持“准入名单”和“匿名参与”两种同学参加方式。
@@ -22,9 +39,21 @@
 - 后端数据源有独立边界，默认保留 Supabase，也预留自定义 API 接入点。
 - 提供 Supabase 迁移和合成示例名单，方便本地启动。
 
+<a id="readme-detail-audience"></a>
+
+## ✅ 适用场景
+
+适合组织提示词练习与教学活动的读者。
+
 <a id="readme-section-2"></a>
 
-## 快速开始
+<a id="快速开始"></a>
+
+<a id="readme-detail-14"></a>
+
+## 🚀 快速开始
+
+从下面的现有入口开始，按顺序准备环境、配置并完成首次运行。
 
 ### 准备
 
@@ -63,7 +92,13 @@ npm run dev
 
 <a id="readme-section-3"></a>
 
-## 技术栈
+<a id="技术栈"></a>
+
+<a id="readme-detail-16"></a>
+
+## 🏗️ 技术栈
+
+Prompt Benchmark 的实现按下列技术与模块组织，接入和维护时可据此定位。
 
 | 层级 | 技术 |
 | --- | --- |
@@ -74,7 +109,11 @@ npm run dev
 
 <a id="readme-section-4"></a>
 
-## 数据源接入
+<a id="数据源接入"></a>
+
+<a id="readme-detail-18"></a>
+
+## 🔌 数据源接入
 
 默认数据源是 Supabase。公开副本把数据源边界放在 `apps/api/src/common/data-source/`。
 
@@ -84,13 +123,23 @@ npm run dev
 
 <a id="readme-section-5"></a>
 
-## 脱敏说明
+<a id="脱敏说明"></a>
+
+<a id="readme-detail-20"></a>
+
+## 🔒 脱敏说明
 
 这个公开副本使用全新的 Git 历史，不包含私有工作流资产、本地构建产物、部署状态、截图、历史评审报告或真实学员名单。示例数据全部为合成数据。
 
 <a id="readme-section-6"></a>
 
-## 目录结构
+<a id="目录结构"></a>
+
+<a id="readme-detail-22"></a>
+
+## 📁 目录结构
+
+下面按实现职责列出目录位置，便于把修改放回对应模块。
 
 ```text
 apps/web     Next.js 前端
@@ -102,25 +151,41 @@ docs         配置、数据源和隐私说明
 
 <a id="readme-section-7"></a>
 
-## 安全
+<a id="安全"></a>
+
+<a id="readme-detail-24"></a>
+
+## 🔒 安全
 
 安全问题请私下披露，见 [SECURITY.md](SECURITY.md)。
 
 <a id="readme-section-8"></a>
 
-## 贡献
+<a id="贡献"></a>
+
+<a id="readme-detail-26"></a>
+
+## 🤝 贡献
 
 见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 <a id="readme-section-9"></a>
 
-## 许可证
+<a id="许可证"></a>
+
+<a id="readme-detail-28"></a>
+
+## 📄 许可证
 
 MIT
 
 <a id="readme-section-10"></a>
 
-## 作者
+<a id="作者"></a>
+
+<a id="readme-detail-30"></a>
+
+## 👤 作者
 
 - SoulCard: [超级峰](https://soulcard.me/card/chaojifeng)
 - X: [Mileson07](https://x.com/Mileson07)
