@@ -8,6 +8,10 @@
 
 [简体中文](README_CN.md)
 
+[Features](#readme-section-1) · [Quick Start](#readme-section-2) · [Tech Stack](#readme-section-3) · [Data Source Adapters](#readme-section-4) · [Project Structure](#readme-section-5) · [Privacy](#readme-section-6) · [Contributing](#readme-section-8)
+
+<a id="readme-section-1"></a>
+
 ## Features
 
 - Create training activities and route learners through numbered join links.
@@ -18,14 +22,7 @@
 - Keep the backend data layer behind a replaceable data-source boundary.
 - Ship Supabase migrations and a synthetic seed roster for quick setup.
 
-## Tech Stack
-
-| Layer | Technology |
-| --- | --- |
-| Web | Next.js, React, TypeScript |
-| API | NestJS, TypeScript |
-| Default storage | Supabase Postgres via `@supabase/supabase-js` |
-| AI evaluation | OpenAI-compatible chat completions API |
+<a id="readme-section-2"></a>
 
 ## Quick Start
 
@@ -64,6 +61,19 @@ npm run dev
 - Web: `http://localhost:3000`
 - API: `http://localhost:3001/api`
 
+<a id="readme-section-3"></a>
+
+## Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| Web | Next.js, React, TypeScript |
+| API | NestJS, TypeScript |
+| Default storage | Supabase Postgres via `@supabase/supabase-js` |
+| AI evaluation | OpenAI-compatible chat completions API |
+
+<a id="readme-section-4"></a>
+
 ## Data Source Adapters
 
 The default backend data source is Supabase. The public extension point is `apps/api/src/common/data-source/`.
@@ -72,9 +82,7 @@ The default backend data source is Supabase. The public extension point is `apps
 - Use `DATA_SOURCE_PROVIDER=custom_api` as the reserved switch for your own adapter.
 - See [docs/data-source-adapters.md](docs/data-source-adapters.md) for the contract and migration notes.
 
-## Privacy
-
-This public copy is built with a fresh Git history and excludes private workflow artifacts, local build output, deployment state, screenshots, historical review reports, and real learner rosters. The included seed data is synthetic.
+<a id="readme-section-5"></a>
 
 ## Project Structure
 
@@ -86,17 +94,31 @@ scripts      Local development helpers
 docs         Setup, adapter, and privacy notes
 ```
 
-## Contributing
+<a id="readme-section-6"></a>
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+## Privacy
+
+This public copy is built with a fresh Git history and excludes private workflow artifacts, local build output, deployment state, screenshots, historical review reports, and real learner rosters. The included seed data is synthetic.
+
+<a id="readme-section-7"></a>
 
 ## Security
 
 Please report vulnerabilities privately. See [SECURITY.md](SECURITY.md).
 
+<a id="readme-section-8"></a>
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+<a id="readme-section-9"></a>
+
 ## License
 
 MIT
+
+<a id="readme-section-10"></a>
 
 ## Author
 
