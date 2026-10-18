@@ -8,6 +8,10 @@
 
 [English](README.md)
 
+[功能](#readme-section-1) · [快速开始](#readme-section-2) · [技术栈](#readme-section-3) · [脱敏说明](#readme-section-5) · [目录结构](#readme-section-6) · [安全](#readme-section-7) · [贡献](#readme-section-8)
+
+<a id="readme-section-1"></a>
+
 ## 功能
 
 - 创建教学活动，并生成数字编号参与入口。
@@ -18,14 +22,7 @@
 - 后端数据源有独立边界，默认保留 Supabase，也预留自定义 API 接入点。
 - 提供 Supabase 迁移和合成示例名单，方便本地启动。
 
-## 技术栈
-
-| 层级 | 技术 |
-| --- | --- |
-| 前端 | Next.js, React, TypeScript |
-| 后端 | NestJS, TypeScript |
-| 默认存储 | Supabase Postgres |
-| AI 评分 | OpenAI 兼容的聊天补全接口 |
+<a id="readme-section-2"></a>
 
 ## 快速开始
 
@@ -64,6 +61,19 @@ npm run dev
 - 前端：`http://localhost:3000`
 - 后端：`http://localhost:3001/api`
 
+<a id="readme-section-3"></a>
+
+## 技术栈
+
+| 层级 | 技术 |
+| --- | --- |
+| 前端 | Next.js, React, TypeScript |
+| 后端 | NestJS, TypeScript |
+| 默认存储 | Supabase Postgres |
+| AI 评分 | OpenAI 兼容的聊天补全接口 |
+
+<a id="readme-section-4"></a>
+
 ## 数据源接入
 
 默认数据源是 Supabase。公开副本把数据源边界放在 `apps/api/src/common/data-source/`。
@@ -72,9 +82,13 @@ npm run dev
 - `DATA_SOURCE_PROVIDER=custom_api`：预留给自有 API 或其他存储。
 - 具体接入方式见 [docs/data-source-adapters.md](docs/data-source-adapters.md)。
 
+<a id="readme-section-5"></a>
+
 ## 脱敏说明
 
 这个公开副本使用全新的 Git 历史，不包含私有工作流资产、本地构建产物、部署状态、截图、历史评审报告或真实学员名单。示例数据全部为合成数据。
+
+<a id="readme-section-6"></a>
 
 ## 目录结构
 
@@ -86,17 +100,25 @@ scripts      本地开发脚本
 docs         配置、数据源和隐私说明
 ```
 
-## 贡献
-
-见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+<a id="readme-section-7"></a>
 
 ## 安全
 
 安全问题请私下披露，见 [SECURITY.md](SECURITY.md)。
 
+<a id="readme-section-8"></a>
+
+## 贡献
+
+见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+<a id="readme-section-9"></a>
+
 ## 许可证
 
 MIT
+
+<a id="readme-section-10"></a>
 
 ## 作者
 
